@@ -1,6 +1,8 @@
 import random
+from mimetypes import inited
 from tkinter import *
 import tkinter as tk
+
 
 def get_user_choice():
     choices = ['красный', 'жёлтый', 'зелёный']
@@ -28,7 +30,8 @@ def check_winner(user, computer):
     if user == computer:
         return ('Вы выиграли!')
     else:
-        return ('Компьютер выиграл!')
+        return ('Вы не угадали!')
+
 
 root = Tk()
 root.title('Угадай свет светофора')
@@ -40,37 +43,10 @@ m.pack(pady=10)
 e = Entry(root, width=20, font=('Arial', 15))
 e.pack(pady=5)
 
-b = Button(root, text=('ПРОВЕРИТЬ"'), command=check_winner)
+b = Button(root, text=('ПРОВЕРИТЬ'), command=check_winner)
 b.pack(pady=1)
 
 m1 = Label(root, text='', width=50, height=3, fg='DarkBlue')
 m1.pack(pady=15)
-
-
-
-
-
-# while True:
-#     try:
-#         # choices = ['камень', 'ножницы', 'бумага']
-#         user = get_user_choice()
-#         # if user == 'выход':
-#         #     print('Игра окончена')
-#         #     break
-#         #
-#         # if user not in choices:
-#         #     print('Такого варианта нет')
-#
-#         print(f'Вы выбрали:{user}')
-#
-#         computer = get_computer_choice()
-#         print(f'Компьютер выбрал:{computer}')
-#
-#         result = check_winner(user, computer)
-#         print(result)
-#
-#     except Exception as e:
-#         print(type(e).__name__)
-#         print(e)
 
 root.mainloop()
